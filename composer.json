@@ -1,0 +1,23 @@
+{
+    "name": "mobytes/htmlext",
+    "description": "",
+    "authors": [
+        {
+            "name": "Mobytes S.A.C",
+            "email": "php@mobytescorp.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Mobytes\\Htmlext\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
