@@ -1,7 +1,6 @@
 <?php namespace Mobytes\Htmlext;
 
 use Illuminate\Support\ServiceProvider;
-use Mobytes\Htmlext\Builder\TableBuilder;
 
 class HtmlextServiceProvider extends ServiceProvider {
 

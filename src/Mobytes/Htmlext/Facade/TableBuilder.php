@@ -1,4 +1,4 @@
-<?php
+<?php namespace Mobytes\Htmlext\Facade;
 
 /*
  *
@@ -17,31 +17,20 @@
  *  * limitations under the License.
  *
  */
-namespace Mobytes\Htmlext\Builder;
+use Illuminate\Support\Facades\Facade;
 
-use Illuminate\Support\Traits\MacroableTrait;
-use Illuminate\Html\HtmlBuilder;
-use Illuminate\Database\Eloquent\Model;
-
-class TableBuilder
+class TableBuilder extends Facade
 {
-    use MacroableTrait;
-
-    protected $html;
-
-    protected $model;
-
     /**
-     * TableBuilder constructor.
-     * @param $html
+     * Get the registered name of the component.
+     *
+     * @return string
+     *
+     * @throws \RuntimeException
      */
-    public function __construct(HtmlBuilder $html)
+    protected static function getFacadeAccessor()
     {
-        $this->html = $html;
+        return 'Mobytes\Htmlext\TableBuilder';
     }
 
-    public function createTable(Model $model)
-    {
-
-    }
 }
