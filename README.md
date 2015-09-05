@@ -127,6 +127,6 @@ Print the form in view with `table()` helper function:
 @extend('layouts.master')
 
 @section('content')
-    {{{ table($table) }}}
+    {{ table($table) }}
 @endsection
 ```
