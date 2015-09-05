@@ -1,7 +1,6 @@
-# Laravel 4 table builder
+# Laravel 4.2 table builder
 
 Table builder for **Laravel 4.2** 
-By default it supports Bootstrap 3.
 
 ###Installation
 
@@ -29,7 +28,7 @@ And Facade (also in `config/app.php`)
 ``` php
     'aliases' => [
         // ...
-        'TableBuilder' => 'Mobytes\Htmlext\Facade\TableBuilder'
+        'TableBuilder'	  => 'Mobytes\Htmlext\Facade\TableBuilder',
     ]
 
 ```
@@ -45,19 +44,19 @@ use Mobytes\Htmlext\Table;
 
 class NoticeTable extends Table
 {
-    //titulo del boton crear
+    //create text button
     protected $btn_new = "Crear nueva noticia";
     
-    //titulo de la tabla
+    //Table title 
     protected $title = "Todas las noticias de cepco.org.pe";
     
-    //activar el paginate
+    //activate the paginate
     protected $paginate = true;
     
-    //numero de registros por página
+    //number of records per page
     protected $per_page = 7;
     
-    //Titulos del thead
+    //Titles of thead
     protected $thead = array(
         "title" => [
             "Titulo",
@@ -68,7 +67,7 @@ class NoticeTable extends Table
         ]
     );
     
-    //registros del tbody
+    //records tbody
     protected $tbody = array(
         "fields" => [
             "titulo" => [
@@ -86,7 +85,7 @@ class NoticeTable extends Table
         ]
      );
     
-    //funcion de inicio    
+    //Start function    
     public function build()
     {
         $prefix_router = "landpage.noticias";
