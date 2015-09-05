@@ -1,5 +1,4 @@
-<?php namespace Mobytes\Htmlext\Facade;
-
+<?php
 /*
  *
  *  * Copyright (C) 2015 eveR Vásquez.
@@ -17,19 +16,7 @@
  *  * limitations under the License.
  *
  */
-use Illuminate\Support\Facades\Facade;
 
-class TableBuilder extends Facade
-{
-    /**
-     * Get the registered name of the component.
-     *
-     * @return string
-     *
-     * @throws \RuntimeException
-     */
-    protected static function getFacadeAccessor()
-    {
-        return 'Mobytes\Htmlext\TableBuilder';
-    }
-}
+return [
+    'default_namespace' => ''
+];

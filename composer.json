@@ -13,7 +13,10 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+
+        ],
+        "files": [
+          "src/helpers.php"
         ],
         "psr-0": {
             "Mobytes\\Htmlext\\": "src/"

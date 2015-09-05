@@ -17,28 +17,47 @@
  *
  */
 
-namespace Mobytes\Htmlext\Facade;
+namespace Mobytes\Htmlext;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use View, Request;
+use Illuminate\View\Factory as View;
 
+/**
+ * Class TableHelper
+ * @package Mobytes\Htmlext\Facade
+ */
 class TableHelper
 {
+    /**
+     * @autor eveR Vásquez
+     * @link http://evervasquez.me
+     * @var View
+     */
     protected $view;
-    protected $request;
 
     /**
-     * TableHelper constructor.
-     * @param $view
-     * @param $request
+     * @autor eveR Vásquez
+     * @link http://evervasquez.me
+     * @var array
      */
-    public function __construct(View $view, Request $request)
+    protected $config;
+
+
+    /**
+     * @param View $view
+     * @param array $config
+     */
+    public function __construct(View $view, array $config=[])
     {
         $this->view = $view;
-        $this->request = $request;
+        $this->config = $config;
     }
 
+    /**
+     * @param $model
+     * @return array|null
+     */
     public function convertModelToArray($model)
     {
         if (!$model) {
@@ -51,5 +70,35 @@ class TableHelper
             return $model->all();
         }
         return $model;
+    }
+
+    /**
+     * @return View
+     */
+    public function getView()
+    {
+        return $this->view;
+    }
+
+    /**
+     * @param string $key
+     * @param string $default
+     * @return mixed
+     */
+    public function getConfig($key, $default = null)
+    {
+        return array_get($this->config, $key, $default);
+    }
+
+    /**
+     * Merge options array
+     *
+     * @param array $first
+     * @param array $second
+     * @return array
+     */
+    public function mergeOptions(array $first, array $second)
+    {
+        return array_replace_recursive($first, $second);
     }
 }

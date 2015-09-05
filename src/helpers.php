@@ -16,3 +16,12 @@
  *  * limitations under the License.
  *
  */
+
+use Mobytes\Htmlext\Table;
+
+if (!function_exists('table')) {
+    function table(Table $table, array $options = [])
+    {
+        return $table->renderTable($options);
+    }
+}

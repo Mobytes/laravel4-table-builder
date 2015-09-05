@@ -19,19 +19,15 @@
  */
 namespace Mobytes\Htmlext;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Traits\MacroableTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Application as Container;
-use Mobytes\Htmlext\Facade\TableHelper;
-
+use Illuminate\Support\Collection;
 /**
  * Class TableBuilder
  * @package Mobytes\Htmlext
  */
 class TableBuilder
 {
-    use MacroableTrait;
-
     /**
      * @autor eveR Vásquez
      * @link http://evervasquez.me
@@ -57,23 +53,40 @@ class TableBuilder
         $this->tableHelper = $tableHelper;
     }
 
-
-    /**
-     * @param Collection $collection
-     */
-    public function build(Collection $collection)
+    public function create($tableClass, Builder $collection,array $options = [])
     {
-        foreach($collection as $model)
-        {
-            dd($model->getAttributes());
+        $class = $this->getNamespaceFromConfig() . $tableClass;
+        
+        if (!class_exists($class)) {
+            throw new \InvalidArgumentException(
+                'Table class with name ' . $class . ' does not exist.'
+            );
         }
+
+        $table = $this->container
+            ->make($class)
+            ->setTableHelper($this->tableHelper)
+            ->setTableBuilder($this)
+//            ->setTableOptions($options)
+            ->addData($collection);
+
+        $table->buildTable();
+
+        return $table;
     }
 
     /**
+     * Get the namespace from the config
      *
+     * @return string
      */
-    public function createTable()
+    protected function getNamespaceFromConfig()
     {
-
+        $namespace = $this->tableHelper->getConfig('default_namespace');
+        if (!$namespace) {
+            return '';
+        }
+        return $namespace . '\\';
     }
+
 }
