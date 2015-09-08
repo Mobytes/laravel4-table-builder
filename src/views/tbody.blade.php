@@ -7,7 +7,7 @@
        @endforeach
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-cogs"></i>
                         <span class="caret"></span>
                     </a>
