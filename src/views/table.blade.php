@@ -4,14 +4,14 @@
             <h5>{{$title}}</h5>
 
             <div class="ibox-tools">
-                <a href="{{route('landpage.noticias.create')}}" class="btn btn-primary btn-xs">{{$name_btn}}</a>
+                <a href="{{route("$name_route.create")}}" class="btn btn-primary btn-xs">{{$name_btn}}</a>
             </div>
         </div>
         <div class="ibox-content">
             <div class="row m-b-sm m-t-sm">
                 <div class="col-md-1">
                     <a type="button" id="loading-example-btn" class="btn btn-white btn-sm"
-                       href="{{route('landpage.noticias')}}"><i class="fa fa-refresh"></i> Refresh</a>
+                       href="{{route($name_route)}}"><i class="fa fa-refresh"></i> Refresh</a>
                 </div>
                 <div class="col-md-11">
                     <form>

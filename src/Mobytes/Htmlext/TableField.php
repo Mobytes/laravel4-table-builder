@@ -135,6 +135,7 @@ class TableField
             [
                 'thead' => $this->thead,
                 'tbody' => $this->tbody,
+                'name_route' => $this->parent->getName(),
                 'title' => $this->parent->getTitle(),
                 'fields' => $this->parent->getFields(),
                 'name_btn' => $this->parent->getNameBtnNew(),
