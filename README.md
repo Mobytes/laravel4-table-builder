@@ -7,7 +7,7 @@ Table builder for **Laravel 4.2**
 ``` json
 {
     "require": {
-        "mobytes/laravel4-table-builder": "dev-master"
+        "mobytes/htmlext": "dev-master"
     }
 }
 ```
