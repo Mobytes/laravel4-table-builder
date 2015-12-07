@@ -18,7 +18,7 @@
  */
 
 namespace Mobytes\Htmlext;
-
+use Config;
 
 /**
  * Class TableField
@@ -43,11 +43,11 @@ class TableField
      * @link http://evervasquez.me
      * @var void
      */
-    protected $template = "htmlext::table";
+    protected $template = "htmlext::views.table";
 
-    protected $template_tbody = "htmlext::tbody";
+    protected $template_tbody = "htmlext::views.tbody";
 
-    protected $template_thead = "htmlext::thead";
+    protected $template_thead = "htmlext::views.thead";
 
     /**
      * @autor eveR Vásquez
@@ -108,15 +108,15 @@ class TableField
     private function renderThead()
     {
         $this->thead = $this->tableHelper->getView()
-            ->make($this->template_thead,[
-                'thead' => array_get($this->parent->getThead(),"title")
+            ->make(Config::get($this->template_thead),[
+                'thead' => array_get($this->parent->getThead(), "title")
             ])->render();
     }
 
     private function renderTbody()
     {
         $this->tbody = $this->tableHelper->getView()
-            ->make($this->template_tbody,[
+            ->make(Config::get($this->template_tbody),[
                 'tbody' => array_get($this->parent->getTbody(), "fields"),
                 'name_route' => $this->parent->getName(),
                 'items' => $this->items,
@@ -132,7 +132,7 @@ class TableField
         $this->renderTbody();
 
         return $this->tableHelper->getView()->make(
-            $this->template,
+            Config::get($this->template),
             [
                 'thead' => $this->thead,
                 'tbody' => $this->tbody,

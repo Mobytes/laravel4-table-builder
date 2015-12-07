@@ -21,6 +21,9 @@ return [
     'default_namespace' => '',
 
     'views' => array(
-        'buttons' => 'htmlext::buttons'
+        'buttons' => 'htmlext::buttons',
+        'table' => 'htmlext::table',
+        'tbody' => 'htmlext::tbody',
+        'thead' => 'htmlext::thead'
     )
 ];
