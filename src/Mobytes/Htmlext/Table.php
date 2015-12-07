@@ -22,6 +22,7 @@ namespace Mobytes\Htmlext;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Application as Container;
 
+
 class Table
 {
 
@@ -138,6 +139,7 @@ class Table
         foreach ($options as $key => $option) {
             $this->tableOptions[$key] = $option;
         }
+
 
         return $this;
     }
@@ -292,7 +294,8 @@ class Table
         return $this->paginate;
     }
 
-    public function getTableOptions(){
+    public function getTableOptions()
+    {
         return $this->tableOptions;
     }
 
