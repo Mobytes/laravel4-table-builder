@@ -25,11 +25,13 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        @if(Route::has("$name_route.show"))
                         <li>
                             <a href="{{ route("$name_route.show", array($item['id'])) }}">
                                 <i class="icon-info-sign"></i>&nbsp;Ver
                             </a>
                         </li>
+                        @endif
                         <li>
                             <a href="{{ route("$name_route.edit", array($item['id'])) }}">
                                 <i class="icon-edit"></i>&nbsp;Editar
